@@ -4,15 +4,15 @@ public class Aluno {
 
     private Integer numero;
     private String nome;
-    private String sexo;
+    private String turma;
 
     public Aluno() {
     }
 
-    public Aluno(Integer numero, String nome, String sexo) {
+    public Aluno(Integer numero, String nome, String turma) {
         this.numero = numero;
         this.nome = nome;
-        this.sexo = sexo;
+        this.turma = turma;
     }
 
     public Integer getNumero() {
@@ -31,11 +31,11 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getTurma() {
+        return turma;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setTurma(String turma) {
+        this.turma = turma;
     }
 }
