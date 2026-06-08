@@ -2,25 +2,178 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HOME</title>
+    <title>Ocorrências</title>
+    <style>
+        body {
+     font-family: 'Segoe UI', Arial, sans-serif;
+     margin: 0;
+     min-height: 100vh;
+
+     /* Fundo branco + verde suave */
+     background: linear-gradient(
+         135deg,
+         #ffffff 0%,
+         #e8f5e9 40%,
+         #c8e6c9 100%
+     );
+
+   /* Topo estilo sistema */
+   h1, h2 {
+       text-align: center;
+       color: #1b5e20;
+       margin-top: 25px;
+   }
+
+   /* Container geral */
+   form {
+       width: 90%;
+       max-width: 800px;
+       margin: 20px auto;
+       background: #ffffff;
+       padding: 25px;
+       border-radius: 10px;
+       border-top: 5px solid #2e7d32;
+       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+   }
+
+   /* Labels */
+   label {
+       font-weight: 600;
+       color: #333;
+       display: block;
+       margin-bottom: 5px;
+   }
+
+   /* Inputs estilo sistema */
+   input {
+       width: 100%;
+       padding: 10px;
+       margin-bottom: 15px;
+       border: 1px solid #ccc;
+       border-radius: 6px;
+       background: #fafafa;
+       transition: 0.2s;
+   }
+
+   input:focus {
+       border-color: #2e7d32;
+       outline: none;
+       background: #fff;
+       box-shadow: 0 0 4px rgba(46,125,50,0.2);
+   }
+
+   /* Botão padrão sistema */
+   button {
+       width: 100%;
+       padding: 12px;
+       background: #2e7d32;
+       color: white;
+       border: none;
+       border-radius: 6px;
+       font-weight: bold;
+       cursor: pointer;
+       transition: 0.2s;
+   }
+
+   button:hover {
+       background: #1b5e20;
+   }
+
+   /* Tabela estilo sistema acadêmico */
+   table {
+       width: 90%;
+       max-width: 1000px;
+       margin: 30px auto;
+       border-collapse: collapse;
+       background: #fff;
+       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+       border-radius: 10px;
+       overflow: hidden;
+   }
+
+   th {
+       background: #2e7d32;
+       color: white;
+       padding: 12px;
+       text-align: center;
+       font-size: 14px;
+   }
+
+   td {
+       padding: 10px;
+       text-align: center;
+       border-bottom: 1px solid #eee;
+       font-size: 14px;
+       color: #333;
+   }
+
+   tr:nth-child(even) {
+       background: #f9f9f9;
+   }
+
+   tr:hover {
+       background: #e8f5e9;
+       transition: 0.2s;
+   }
+    </style>
 </head>
 <body>
-<h1>Cadastro de Aluno</h1>
-<table border="1">
 
+<h1>Cadastro de Ocorrências</h1>
+
+<form th:action="@{/ocorrencia}" th:object="${ocorrencia}" method="post">
+
+    <label>Aluno</label>
+    <input type="text" name="aluno" required>
+
+    <label>Motivo</label>
+    <input type="text" name="motivo" required>
+
+    <label>Disciplina</label>
+    <input type="text" name="disciplina" required>
+
+    <label>Professor</label>
+    <input type="text" name="professor" required>
+
+    <label>Data</label>
+    <input type="date" name="data" required>
+
+    <label>Lugar</label>
+    <input type="text" name="lugar" required>
+
+    <label>Turma</label>
+    <input type="text" name="turma" required>
+
+    <button type="submit">Salvar Ocorrência</button>
+
+</form>
+
+<h2>Lista de Ocorrências</h2>
+
+<table>
+    <thead>
     <tr>
-        <th>Número</th>
-        <th>Nome</th>
-        <th>Sexo</th>
+        <th>Aluno</th>
+        <th>Motivo</th>
+        <th>Disciplina</th>
+        <th>Professor</th>
+        <th>Data</th>
+        <th>Lugar</th>
+        <th>Turma</th>
     </tr>
-
-    <tr th:each="aluno : ${listaAlunos}">
-        <td th:text="${aluno.numero}"></td>
-        <td th:text="${aluno.nome}"></td>
-        <td th:text="${aluno.sexo}"></td>
+    </thead>
+    <tbody>
+    <tr th:each="         ocorrencias : ${listaOcorrencia}">
+        <td th:text="${ocorrencias.aluno}"></td>
+        <td th:text="${ocorrencias.motivo}"></td>
+        <td th:text="${ocorrencias.disciplina}"></td>
+        <td th:text="${ocorrencias.professor}"></td>
+        <td th:text="${ocorrencias.data}"></td>
+        <td th:text="${ocorrencias.lugar}"></td>
+        <td th:text="${ocorrencias.turma}"></td>
     </tr>
-
+    </tbody>
 </table>
+
 </body>
 </html>
