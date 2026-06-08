@@ -2,43 +2,57 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HOME</title>
+    <title>Cadastro de Aluno</title>
 </head>
 <body>
+
 <h1>Cadastro de Aluno</h1>
 
-<form th:action="@{/salvar}" th:object="${aluno}" method="post">
-    <label>Numero:</label>
+<form th:action="@{/Aluno/salvar}"
+      th:object="${aluno}"
+      method="post">
+
+    <label>Número:</label>
     <input type="text" th:field="*{numero}">
+    <br><br>
 
     <label>Nome:</label>
     <input type="text" th:field="*{nome}">
+    <br><br>
 
     <label>Sexo:</label>
-    <input type="text" th:field="*{sexo}" >
+    <select th:field="*{sexo}">
+        <option value="">Selecione</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+    </select>
+    <br><br>
 
     <label>Turma:</label>
-    <input type="text" th:field="*{turma}" >
+    <input type="text" th:field="*{turma}">
+    <br><br>
 
-    <label>Matricula:</label>
-    <input type="text" th:field="*{matricula}" >
-    <input type="submit" value="salvar">
+    <label>Matrícula:</label>
+    <input type="text" th:field="*{matricula}">
+    <br><br>
+
+    <input type="submit" value="Salvar">
+
 </form>
 
-
+<hr>
 
 <table border="1">
 
     <tr>
-        <th>Numero</th>
+        <th>Número</th>
         <th>Nome</th>
         <th>Sexo</th>
         <th>Turma</th>
-        <th>Matricula</th>
+        <th>Matrícula</th>
     </tr>
 
-    <tr th:each="aluno : ${listaAlunos}">
+    <tr th:each="aluno : ${listarAlunos}">
         <td th:text="${aluno.numero}"></td>
         <td th:text="${aluno.nome}"></td>
         <td th:text="${aluno.sexo}"></td>
@@ -47,5 +61,6 @@
     </tr>
 
 </table>
+
 </body>
 </html>
