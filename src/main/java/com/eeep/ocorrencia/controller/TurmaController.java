@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 845a9cdf045e2cc45f6633216e06c9f2ab93fbba
 package com.eeep.ocorrencia.controller;
 
 import com.eeep.ocorrencia.model.Turma;
@@ -35,8 +32,8 @@ public class TurmaController {
 
         return "Cadastro";
     }
-<<<<<<< HEAD
+
 }
-=======
+
 }
->>>>>>> 845a9cdf045e2cc45f6633216e06c9f2ab93fbba
+
