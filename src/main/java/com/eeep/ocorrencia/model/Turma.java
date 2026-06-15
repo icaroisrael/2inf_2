@@ -1,6 +1,6 @@
 package com.eeep.ocorrencia.model;
 
-<<<<<<< HEAD
+
 
 
     public class Turma {
@@ -32,7 +32,7 @@ package com.eeep.ocorrencia.model;
             this.descricao = descricao;
         }
 }
-=======
+
 public class Turma {
 
     private Integer codigo;
@@ -62,4 +62,4 @@ public class Turma {
         this.descricao = descricao;
     }
 }
->>>>>>> 845a9cdf045e2cc45f6633216e06c9f2ab93fbba
+
