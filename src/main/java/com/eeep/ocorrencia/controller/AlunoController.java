@@ -27,4 +27,8 @@ public class AlunoController {
         return "cadastro";
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 845a9cdf045e2cc45f6633216e06c9f2ab93fbba
