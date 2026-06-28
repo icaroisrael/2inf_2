@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #d4f5dd, #a8e6a3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+            width: 320px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2e7d32;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #c8e6c9;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #4caf50;
+            box-shadow: 0 0 5px #81c784;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #388e3c;
+        }
+
+        .erro {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+</form>
+
+<p th:if="${erro}" th:text="${erro}"></p>
+
+<div class="card">
+
+    <h2>Login</h2>
+
+    <form th:action="@{/login}" th:object="${usuario}" method="post">
+
+        <input type="text" placeholder="Nome" th:field="*{nome}">
+        <input type="email" placeholder="Email" th:field="*{email}">
+        <input type="password" placeholder="Senha" th:field="*{senha}">
+
+        <button type="submit">Entrar</button>
+    </form>
+
+    <p class="erro" th:if="${erro}" th:text="${erro}"></p>
+
+</div>
+</body>
+</html>
